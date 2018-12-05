@@ -56,6 +56,11 @@ where X1,X2,X3 are the names of the locally saved search files saved as X1.html,
 
 The tool would then loop through them to extract data and save it as one CSV file per source: (X1.csv, X2.csv,..) The text of the tweets will be UTF-8 encoded.
 
+
+## Jupyter notebooks
+
+A compressed file named 'notebooks.zip'called includes Jupyter notebooks that could be useful as a pedagogic exercise of how the script was built.
+
 ## Author 
 
 The principal author is Walid Al-Saqaf, a developer and senior lecturer at Södertörn University in Stockholm
