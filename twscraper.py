@@ -1,7 +1,4 @@
-### This script enables the extraction of some basic twitter data from a local file saved from the results of a Twitter search. It is meant for educational purposes only.
-### Written by Walid Al-Saqaf <walid.al-saqaf@sh.se>, December 2018
-
-
+#!/usr/bin/env python3
 #Load the required libraries
 
 from bs4 import BeautifulSoup
@@ -14,12 +11,12 @@ def get_twitter_data(filename):
 		with open("data/"+filename+".html", 'r') as content_file:
 			content = content_file.read()
 	except:
-		print ("Could not read contents of file data/"+sys.argv[1])
-		sys.exit()
+		print ("Could not read contents of file data/"+filename)
+		sys.exit(-1)
 
 #Indicate that scraping has started
 
-	print "Scraping:"+str(sys.argv[1])+"\n"
+	print ("Scraping:"+filename+"\n")
 
 #Create the first soup instance from the content of the page
 	soup = BeautifulSoup(content, 'html.parser')
@@ -57,7 +54,7 @@ def get_twitter_data(filename):
 
 # Save the results in a CSV file under the same name but with the extension 'csv'
 
-	with open("data/"+sys.argv[1]+".csv", "w") as f:
+	with open("data/"+filename+".csv", "w") as f:
 		writer = csv.writer(f)
 		writer.writerows(tweet_data)
 
@@ -65,8 +62,7 @@ def get_twitter_data(filename):
 #############################
 
 if len(sys.argv)<2:
-        print ("Please enter a file to scrape (without the file extension), use spaces for multiple files:")
-        filenames=input()
+        filenames=raw_input("File to scrape, use spaces for multiple files: ")
         if (len(filenames)==0):
                 sys.exit()
 	#Convert the string into a list with all the file names
@@ -79,4 +75,4 @@ else:
 for filename in file_list:
 	get_twitter_data(filename)
 
-print "Extraction done. See: data/ folder for the CSV files"
+print ("Extraction done. See: data/ folder for the CSV files")
