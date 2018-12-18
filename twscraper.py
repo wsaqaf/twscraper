@@ -62,7 +62,7 @@ def get_twitter_data(filename):
 #############################
 
 if len(sys.argv)<2:
-    filenames=raw_input("File to scrape, use spaces for multiple files: ")
+    filenames=input("File to scrape, use spaces for multiple files: ")
     if (len(filenames)==0):
         sys.exit()
     #Convert the string into a list with all the file names
